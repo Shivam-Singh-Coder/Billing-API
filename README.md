@@ -154,4 +154,3 @@ We welcome contributions! If you find any bugs or want to suggest new features, 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
