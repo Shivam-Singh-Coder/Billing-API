@@ -17,9 +17,16 @@ urlpatterns = [
     # end product category crud operations
 
     # all stock inventory crud operations
-    path('garments/stock-inventory/list/',garments_views.GarmentsStockInventoryListView.as_view(),name="garments-stock-list"),
-    path('garments/stock-inventory/create/',garments_views.GarmentsStockInventoryCreateView.as_view(),name="garments-stock-create"),
-    path('garments/stock-inventory/edit/<int:stock_id>/',garments_views.GarmentsStockInventoryUpdateView.as_view(),name="garments-stock-edit"),
-    path('garments/stock-inventory/delete/<int:stock_id>/',garments_views.GarmentsStockInventoryDeleteView.as_view(),name="garments-stock-delete"),
+    path('garments/stock-inventory/list/',garments_views.GarmentsStockListView.as_view(),name="garments-stock-list"),
+    path('garments/stock-inventory/create/',garments_views.GarmentsStockCreateView.as_view(),name="garments-stock-create"),
+    path('garments/stock-inventory/edit/<int:stock_id>/',garments_views.GarmentsStockUpdateView.as_view(),name="garments-stock-edit"),
+    path('garments/stock-inventory/delete/<int:stock_id>/',garments_views.GarmentsStockDeleteView.as_view(),name="garments-stock-delete"),
     # end stock inventory crud operations
+
+    ################################################### measurment urls ###################################################
+    path('garments/measurement/list/',garments_views.GarmentsMesaurementListView.as_view(),name="garments-measurement-list"),
+    path('garments/measurement/create/',garments_views.GarmentsMeasurementCreateView.as_view(),name="garments-measurement-create"),
+    path('garments/measurement/edit/<int:measurement_id>/',garments_views.GarmentsMeasurementUpdateView.as_view(),name="garments-measurement-edit"),
+    path('garments/measurement/delete/<int:measurement_id>/',garments_views.GarmentsMeasurementDeleteView.as_view(),name="garments-measurement-delete"),
+    ################################################### end measurment urls ###################################################
 ]

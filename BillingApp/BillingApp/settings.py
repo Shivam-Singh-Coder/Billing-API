@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'AuthorizationApp',
     'GroceryApp',
+    'SimpleInvoice',
 ]
 
 #################################### start drf ##################################################
@@ -54,6 +55,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',  # For Mobile or Web App
         # 'rest_framework.authentication.SessionAuthentication',  # For Web App
     ),
+    'EXCEPTION_HANDLER':'AuthorizationApp.custom_token_error.custom_exception_handler'
 }
 # SIMPLE_JWT = {
 #     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),

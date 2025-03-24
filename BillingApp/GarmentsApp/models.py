@@ -143,7 +143,11 @@ class GarmentsStockInventory(models.Model):
         default=0
     )
 
-    unit = models.CharField(max_length=100)
+    unit = models.ForeignKey(
+        'GarmentsMeasurement',
+        on_delete=models.CASCADE,
+        related_name='stock_inventory'
+    )
 
     expire_at = models.DateTimeField(null=True, blank=True)  # Allow manual expiration date input
     purchased_at = models.DateTimeField(auto_now_add=True)
@@ -203,7 +207,7 @@ class GarmentStock(models.Model):
     garment_stock_inventory = models.ForeignKey(
         GarmentsStockInventory, 
         on_delete=models.CASCADE, 
-        related_name="garment_stock"
+        related_name="garment_stock",
     )
     available_quantity = models.PositiveIntegerField(
         default=0, 
@@ -234,7 +238,6 @@ class GarmentsMeasurement(models.Model):
     name_of_unit = models.CharField(
         max_length=100, 
         unique=True,  # Prevents duplicate measurement units
-        validators=[MinLengthValidator(2)]
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
